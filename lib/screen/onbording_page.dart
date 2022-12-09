@@ -2,9 +2,10 @@ import 'dart:math';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/model_class/page_data.dart';
-import 'package:task_management/screen/login_page.dart';
-import 'package:task_management/screen/signup_page.dart';
-import 'package:task_management/screen/splash_page.dart';
+
+import '../authentications/login_page.dart';
+import '../authentications/signup_page.dart';
+import '../utls/custombutton.dart';
 // import 'package:task_management/utls/colors.dart';
 import 'package:task_management/widgets/textstyle.dart';
 
@@ -98,9 +99,9 @@ class _OnBordingPageState extends State<OnBordingPage> {
           Padding(
             padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
             child: CustomButton(
-              content: SubTitleText('Sign Up'),
+              text: 'Sign Up',
               onTap: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => SignUpPage(),
@@ -109,17 +110,22 @@ class _OnBordingPageState extends State<OnBordingPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(16, 16, 16, 52),
-            child: CustomButton(
-              content: SubTitleText('Login'),
-              color: Colors.transparent,
-              onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(),
-                    ));
-              },
+            padding: EdgeInsets.fromLTRB(16, 16, 16, 40),
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white),
+                  borderRadius: BorderRadius.circular(28)),
+              child: CustomButton(
+                text: 'Login',
+                color: Colors.transparent,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ));
+                },
+              ),
             ),
           ),
         ],

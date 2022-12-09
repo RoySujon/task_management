@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:task_management/screen/splash_page.dart';
-import 'package:task_management/screen/stepper_page2.dart';
+// import 'package:task_management/screen/stepper_page2.dart';
+import 'package:task_management/stepper/stepper_page2.dart';
 import 'package:task_management/utls/colors.dart';
+import '../authentications/login_page.dart';
+import '../utls/custombutton.dart';
 import '../widgets/textstyle.dart';
-import 'login_page.dart';
 
 XFile? profileImage;
 final TextEditingController profileNameController = TextEditingController();
@@ -109,7 +111,7 @@ class _StepperPageState extends State<StepperPage> {
               ),
               SizedBox(height: 6),
               CustomButton(
-                content: SubTitleText('Continue'),
+                text: 'Continue',
                 onTap: () {
                   Navigator.push(
                       context,

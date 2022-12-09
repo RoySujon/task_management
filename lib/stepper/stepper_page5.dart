@@ -1,120 +1,78 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_management/model_class/pagelist.dart';
-import 'package:task_management/screen/home_page.dart';
-import 'package:task_management/screen/splash_page.dart';
-import 'package:task_management/screen/stepper_page.dart';
+// import 'package:task_management/screen/login_page.dart';
+// import 'package:task_management/screen/loginsuccess_page.dart';
+import '../authentications/login_page.dart';
+import '../authentications/loginsuccess_page.dart';
+import '../utls/custombutton.dart';
 import 'package:task_management/utls/colors.dart';
+
 import '../widgets/textstyle.dart';
 
-class LoginSucess extends StatefulWidget {
-  const LoginSucess({super.key});
+final TextEditingController inviteMemberController = TextEditingController();
+
+class StepperPage5 extends StatefulWidget {
+  const StepperPage5({super.key});
 
   @override
-  State<LoginSucess> createState() => _LoginSucessState();
+  State<StepperPage5> createState() => _StepperPage5State();
 }
 
-class _LoginSucessState extends State<LoginSucess> {
+class _StepperPage5State extends State<StepperPage5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         // title: ,
-        // title: SvgPicture.asset('assets/icons/slider.svg'),
+        title: SvgPicture.asset('assets/icons/slider4.svg'),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        /*  leading: Padding(
+        leading: Padding(
             padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
             child: SvgPicture.asset(
               'assets/icons/arrow_chevron_left.svg',
-            )), */
+            )),
       ),
-      body: Align(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Container(
-            height: 397,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: kBackground,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  profileImage == null
-                      ? Container(
-                          height: 120,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: kRotedBox,
-                          ),
-                          child: Center(
-                              child: ClipRRect(
-                            borderRadius: BorderRadius.circular(500),
-                            child: Image(
-                              image: AssetImage('assets/images/profile.jpg'),
-                              fit: BoxFit.cover,
-                              height: 115,
-                              width: 115,
-                            ),
-                          )))
-                      : Container(
-                          height: 120,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: kRotedBox,
-                            // image: DecorationImage(
-                            //     image: FileImage(File(profileImage!.path)),
-                            //     fit: BoxFit.cover),
-                          ),
-                          child: Center(
-                            child: ClipOval(
-                              child: Image(
-                                image: FileImage(File(profileImage!.path)),
-                                fit: BoxFit.cover,
-                                height: 115,
-                                width: 115,
-                              ),
-                            ),
-                          )),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 24, bottom: 8),
-                    child: HeadingText(
-                      'Congratulations!',
-                      color: Color(0xffF8F8F8),
-                    ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 16),
+              Center(
+                  child: TextFieldText(
+                'Invite Your Team Member',
+                color: kLabelTextColor,
+                fontWeight: FontWeight.w700,
+              )),
+              SizedBox(height: 16),
+              CustomTextField(
+                  obscureText: true,
+                  titleTextFiedl: 'Email Member',
+                  controller: inviteMemberController,
+                  svgPicture: SvgPicture.asset(
+                    'assets/icons/mail.svg',
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 32),
-                    child: TextFieldText(
-                      'Parto team was created successfully, create your latest project so you can work with your team.',
-                      textAlign: TextAlign.center,
-                      color: kLoginSuccessTextColor,
-                    ),
-                  ),
-                  CustomButton(
-                    content: SubTitleText('Next'),
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const NavigaTionPageButtion()),
-                          (route) => false);
-                    },
-                  )
-                ],
+                  hintText: 'Type an email addrress',
+                  padding: EdgeInsets.symmetric(horizontal: 18)),
+              const SizedBox(height: 212),
+              CustomButton(
+                text: 'Continue',
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginSucess(),
+                      ),
+                      (route) => false);
+                },
               ),
-            ),
+              SizedBox(height: 53),
+            ],
           ),
         ),
       ),

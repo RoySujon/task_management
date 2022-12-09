@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:task_management/screen/login_page.dart';
-import '../authentications/login_page.dart';
-import '../model_class/stepper_page5.dart';
-import '../utls/custombutton.dart';
-// import 'package:task_management/screen/stepper_page5.dart';
+
 import 'package:task_management/utls/colors.dart';
 
+// import '../screen/stepper_page3.dart';
+import '../screen/stepper_page3.dart';
+import '../utls/custombutton.dart';
 import '../widgets/textstyle.dart';
 
-final TextEditingController teamCodeController = TextEditingController();
-
-class StepperPage4 extends StatefulWidget {
-  const StepperPage4({super.key});
+class StepperPage2 extends StatefulWidget {
+  const StepperPage2({super.key});
 
   @override
-  State<StepperPage4> createState() => _StepperPage4State();
+  State<StepperPage2> createState() => _StepperPage2State();
 }
 
-class _StepperPage4State extends State<StepperPage4> {
+class _StepperPage2State extends State<StepperPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +23,7 @@ class _StepperPage4State extends State<StepperPage4> {
       appBar: AppBar(
         centerTitle: true,
         // title: ,
-        title: SvgPicture.asset('assets/icons/slider3.svg'),
+        title: SvgPicture.asset('assets/icons/slider1.svg'),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
@@ -43,29 +40,27 @@ class _StepperPage4State extends State<StepperPage4> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 16),
+              CustomButton(
+                text: 'Create Your Own Team',
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StepperPage3(),
+                      ));
+                },
+              ),
+              SizedBox(height: 24),
               Center(
                   child: TextFieldText(
-                'Enter Your Code Team',
+                'Or',
                 color: kLabelTextColor,
                 fontWeight: FontWeight.w700,
               )),
-              SizedBox(height: 16),
-              CustomTextField(
-                  obscureText: true,
-                  titleTextFiedl: 'Code Team',
-                  controller: teamCodeController,
-                  svgPicture: SvgPicture.asset(
-                    'assets/icons/pass.svg',
-                  ),
-                  hintText: 'e.g JXHJKH',
-                  padding: EdgeInsets.symmetric(horizontal: 21.5)),
-              SizedBox(height: 212),
+              SizedBox(height: 24),
               CustomButton(
-                text: 'Continue',
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StepperPage5()));
-                },
+                text: 'Join Team',
+                onTap: () {},
               ),
               SizedBox(height: 53),
             ],

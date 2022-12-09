@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_management/screen/login_page.dart';
-import 'package:task_management/screen/loginsuccess_page.dart';
-import 'package:task_management/screen/splash_page.dart';
+// import 'package:task_management/screen/login_page.dart';
+// import 'package:task_management/screen/loginsuccess_page.dart';
+import '../authentications/login_page.dart';
+import '../authentications/loginsuccess_page.dart';
+import '../utls/custombutton.dart';
 import 'package:task_management/utls/colors.dart';
 
 import '../widgets/textstyle.dart';
@@ -57,9 +59,9 @@ class _StepperPage5State extends State<StepperPage5> {
                   ),
                   hintText: 'Type an email addrress',
                   padding: EdgeInsets.symmetric(horizontal: 18)),
-              SizedBox(height: 212),
+              const SizedBox(height: 212),
               CustomButton(
-                content: SubTitleText('Continue'),
+                text: 'Continue',
                 onTap: () {
                   Navigator.pushAndRemoveUntil(
                       context,

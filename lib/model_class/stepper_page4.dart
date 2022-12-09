@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 // import 'package:task_management/screen/login_page.dart';
 import '../authentications/login_page.dart';
-import '../model_class/stepper_page5.dart';
+import '../stepper/stepper_page5.dart';
 import '../utls/custombutton.dart';
 // import 'package:task_management/screen/stepper_page5.dart';
 import 'package:task_management/utls/colors.dart';

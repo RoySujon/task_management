@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:task_management/screen/splash_page.dart';
-import 'package:task_management/screen/stepper_page.dart';
+import '../stepper/stepper_page.dart';
+import '../utls/custombutton.dart';
 
 import '../widgets/textstyle.dart';
 import 'login_page.dart';
@@ -63,7 +63,7 @@ class SignUpPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             CustomButton(
-              content: SubTitleText('Continue'),
+              text: 'Continue',
               onTap: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => StepperPage()));

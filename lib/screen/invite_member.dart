@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_management/model_class/mytask_data.dart';
-import 'package:task_management/screen/login_page.dart';
-import 'package:task_management/screen/splash_page.dart';
+
+import '../authentications/login_page.dart';
+import '../utls/custombutton.dart';
 import 'package:task_management/utls/colors.dart';
 import '../widgets/textstyle.dart';
 
@@ -102,7 +103,7 @@ class _InviteMemberPageState extends State<InviteMemberPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 27),
                 child: CustomButton(
-                  content: SubTitleText('Invite'),
+                  text: 'Invite',
                   onTap: () {},
                 ),
               )

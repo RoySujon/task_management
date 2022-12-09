@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task_management/screen/home_page.dart';
-import 'package:task_management/screen/project_page.dart';
+// import 'package:task_management/screen/home_page.dart';
+// import 'package:task_management/screen/project_page.dart';
 import 'package:task_management/screen/splash_page.dart';
-import 'package:task_management/screen/tabbar_view.dart';
-import 'package:task_management/screen/teammember_page.dart';
+// import 'package:task_management/screen/tabbar_view.dart';
+// import 'package:task_management/screen/teammember_page.dart';
 import 'package:task_management/utls/colors.dart';
 
-import 'model_class/pagelist.dart';
+// import 'model_class/pagelist.dart';
 
 void main() {
   runApp(const MyApp());

@@ -6,8 +6,8 @@ import 'package:task_management/screen/tabbar_view.dart';
 import 'package:task_management/screen/teammember_page.dart';
 
 import 'package:task_management/utls/colors.dart';
+import '../stepper/stepper_page.dart';
 import '../widgets/textstyle.dart';
-import 'stepper_page.dart';
 
 final projectTaskList = TaskManager.projectTastGenarate();
 final myTaskList = TaskManager.myTaskGenarate();

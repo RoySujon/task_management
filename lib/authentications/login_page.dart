@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:task_management/screen/signup_page.dart';
-import 'package:task_management/screen/splash_page.dart';
+import 'package:task_management/authentications/signup_page.dart';
+// import 'package:task_management/screen/signup_page.dart';
+import '../utls/custombutton.dart';
 import 'package:task_management/utls/colors.dart';
 import 'package:task_management/widgets/textstyle.dart';
 
@@ -23,11 +24,14 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Padding(
-          padding:
-              const EdgeInsets.only(left: 21.21, top: 21.21, bottom: 21.21),
-          child: SvgPicture.asset(
-            'assets/icons/cross.svg',
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 21.21, top: 21.21, bottom: 21.21),
+            child: SvgPicture.asset(
+              'assets/icons/cross.svg',
+            ),
           ),
         ),
         actions: [
@@ -78,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 16),
             CustomButton(
-              content: SubTitleText('Login'),
+              text: 'Login',
               onTap: () {},
             ),
             SizedBox(height: 41),

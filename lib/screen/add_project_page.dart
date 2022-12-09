@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task_management/model_class/mytask_data.dart';
-import 'package:task_management/screen/login_page.dart';
-import 'package:task_management/screen/splash_page.dart';
+// import 'package:task_management/screen/login_page.dart';
+import '../authentications/login_page.dart';
+import '../utls/custombutton.dart';
 import '../widgets/textstyle.dart';
 
 final TextEditingController projectNameController = TextEditingController();
@@ -99,7 +100,7 @@ class _AddProjectState extends State<AddProject> {
               Padding(
                 padding: const EdgeInsets.only(top: 27),
                 child: CustomButton(
-                  content: SubTitleText('Save'),
+                  text: 'Save',
                   onTap: () {},
                 ),
               )

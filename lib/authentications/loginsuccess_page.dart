@@ -1,74 +1,120 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:task_management/screen/login_page.dart';
-import '../authentications/login_page.dart';
-import '../model_class/stepper_page5.dart';
+import 'package:task_management/model_class/pagelist.dart';
+import '../stepper/stepper_page.dart';
 import '../utls/custombutton.dart';
-// import 'package:task_management/screen/stepper_page5.dart';
-import 'package:task_management/utls/colors.dart';
 
+import 'package:task_management/utls/colors.dart';
 import '../widgets/textstyle.dart';
 
-final TextEditingController teamCodeController = TextEditingController();
-
-class StepperPage4 extends StatefulWidget {
-  const StepperPage4({super.key});
+class LoginSucess extends StatefulWidget {
+  const LoginSucess({super.key});
 
   @override
-  State<StepperPage4> createState() => _StepperPage4State();
+  State<LoginSucess> createState() => _LoginSucessState();
 }
 
-class _StepperPage4State extends State<StepperPage4> {
+class _LoginSucessState extends State<LoginSucess> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         // title: ,
-        title: SvgPicture.asset('assets/icons/slider3.svg'),
+        // title: SvgPicture.asset('assets/icons/slider.svg'),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Padding(
+        /*  leading: Padding(
             padding: const EdgeInsets.only(left: 16, top: 16, bottom: 16),
             child: SvgPicture.asset(
               'assets/icons/arrow_chevron_left.svg',
-            )),
+            )), */
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 16),
-              Center(
-                  child: TextFieldText(
-                'Enter Your Code Team',
-                color: kLabelTextColor,
-                fontWeight: FontWeight.w700,
-              )),
-              SizedBox(height: 16),
-              CustomTextField(
-                  obscureText: true,
-                  titleTextFiedl: 'Code Team',
-                  controller: teamCodeController,
-                  svgPicture: SvgPicture.asset(
-                    'assets/icons/pass.svg',
+      body: Align(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Container(
+            height: 397,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: kBackground,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  profileImage == null
+                      ? Container(
+                          height: 120,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: kRotedBox,
+                          ),
+                          child: Center(
+                              child: ClipRRect(
+                            borderRadius: BorderRadius.circular(500),
+                            child: Image(
+                              image: AssetImage('assets/images/profile.jpg'),
+                              fit: BoxFit.cover,
+                              height: 115,
+                              width: 115,
+                            ),
+                          )))
+                      : Container(
+                          height: 120,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: kRotedBox,
+                            // image: DecorationImage(
+                            //     image: FileImage(File(profileImage!.path)),
+                            //     fit: BoxFit.cover),
+                          ),
+                          child: Center(
+                            child: ClipOval(
+                              child: Image(
+                                image: FileImage(File(profileImage!.path)),
+                                fit: BoxFit.cover,
+                                height: 115,
+                                width: 115,
+                              ),
+                            ),
+                          )),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24, bottom: 8),
+                    child: HeadingText(
+                      'Congratulations!',
+                      color: Color(0xffF8F8F8),
+                    ),
                   ),
-                  hintText: 'e.g JXHJKH',
-                  padding: EdgeInsets.symmetric(horizontal: 21.5)),
-              SizedBox(height: 212),
-              CustomButton(
-                text: 'Continue',
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StepperPage5()));
-                },
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 32),
+                    child: TextFieldText(
+                      'Parto team was created successfully, create your latest project so you can work with your team.',
+                      textAlign: TextAlign.center,
+                      color: kLoginSuccessTextColor,
+                    ),
+                  ),
+                  CustomButton(
+                    text: 'Next',
+                    onTap: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const NavigaTionPageButtion()),
+                          (route) => false);
+                    },
+                  )
+                ],
               ),
-              SizedBox(height: 53),
-            ],
+            ),
           ),
         ),
       ),
